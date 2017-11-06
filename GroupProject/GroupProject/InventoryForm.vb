@@ -2,7 +2,6 @@
 
 Public Class InventoryForm
     Dim frmEditInventoryEntry As New EditItem
-    Dim conn = MainForm.mySQLConnection
 
     Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
         Me.Close()
