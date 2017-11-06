@@ -26,6 +26,7 @@ Partial Class InventoryForm
         Me.btnEditExistingItem = New System.Windows.Forms.Button()
         Me.btnDeleteItem = New System.Windows.Forms.Button()
         Me.btnDone = New System.Windows.Forms.Button()
+        Me.lstInventory = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'btnAddItem
@@ -64,11 +65,21 @@ Partial Class InventoryForm
         Me.btnDone.Text = "Done"
         Me.btnDone.UseVisualStyleBackColor = True
         '
+        'lstInventory
+        '
+        Me.lstInventory.FormattingEnabled = True
+        Me.lstInventory.ItemHeight = 25
+        Me.lstInventory.Location = New System.Drawing.Point(12, 12)
+        Me.lstInventory.Name = "lstInventory"
+        Me.lstInventory.Size = New System.Drawing.Size(750, 479)
+        Me.lstInventory.TabIndex = 4
+        '
         'InventoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(774, 569)
+        Me.Controls.Add(Me.lstInventory)
         Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.btnDeleteItem)
         Me.Controls.Add(Me.btnEditExistingItem)
@@ -83,4 +94,5 @@ Partial Class InventoryForm
     Friend WithEvents btnEditExistingItem As Button
     Friend WithEvents btnDeleteItem As Button
     Friend WithEvents btnDone As Button
+    Friend WithEvents lstInventory As ListBox
 End Class
