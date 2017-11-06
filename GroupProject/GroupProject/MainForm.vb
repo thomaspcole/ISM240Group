@@ -56,9 +56,7 @@ Public Class MainForm
         Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
         Dim sqlReader As MySqlDataReader = sqlQuery.ExecuteReader()
 
-        While sqlReader.Read
-            Console.WriteLine(sqlReader.GetValue(1))
-        End While
+        Return sqlReader
         sqlReader.Close()
     End Function
 End Class
