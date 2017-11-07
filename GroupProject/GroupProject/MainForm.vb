@@ -1,12 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class MainForm
-    'declare new instances of forms
     Dim frmTransactionMode As New TransactionForm
     Dim frmInventoryManager As New InventoryForm
-
-    'create new sql connection
-    Dim mySQLConnection As New MySqlConnection
+    Public Shared mySQLConnection As New MySqlConnection
 
     Private Sub btnTransactionMode_Click(sender As Object, e As EventArgs) Handles btnTransactionMode.Click
         Me.Hide() 'hide base form 
@@ -24,22 +21,22 @@ Public Class MainForm
         Me.Close()
     End Sub
 
-    'this is called when the form/program loads it is used for initialization 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Console.WriteLine("Form LOADED!")
+        'initialize things here
+
         ConnectToDB()
     End Sub
 
-    'this is called when the form/program unloads 
     Private Sub Form_Unload(sender As Object, e As EventArgs) Handles Me.Closing
         mySQLConnection.Close()
     End Sub
 
-    'connect to the mysql database
     Private Sub ConnectToDB()
         Dim DatabaseName As String = "ism240"
         Dim ServerUrl As String = "vortimoosegames.ddns.net"
         Dim Username As String = "visual"
-        Dim Password As String = "eA5MxKFM2En2DMhzgX5J" 'NOTE THIS PASS WORD DOES NOT WORK ANYMORE. It turns out that putting a password in plaintext on github is a bad idea
+        Dim Password As String = "" 'DO NOT FOR THE LOVE OF GOD TOUCH ANY OF THESE DIMS THEY ARE IMPORTANT
 
         If Not mySQLConnection Is Nothing Then mySQLConnection.Close()
 
@@ -50,14 +47,22 @@ Public Class MainForm
         Catch ex As Exception
             Console.WriteLine("Could not connect to DB" + ex.ToString())
         End Try
+
+
     End Sub
 
-    'take in sql command and retrun a datareader
-    Public Function ExecuteQuery(query As String)
+    'take in sql command and retrun the data
+    Public Function ExecuteQueryWithReturn(query As String)
         Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
         Dim sqlReader As MySqlDataReader = sqlQuery.ExecuteReader()
 
         Return sqlReader
         sqlReader.Close()
+    End Function
+
+    'take in sql command and retrun the data
+    Public Function ExecuteQuery(query As String)
+        Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
+        sqlQuery.ExecuteNonQuery()
     End Function
 End Class
