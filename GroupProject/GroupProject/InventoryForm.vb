@@ -2,7 +2,6 @@
 
 Public Class InventoryForm
     Dim frmEditInventoryEntry As New EditItem
-    Dim conn = MainForm.mySQLConnection
 
     Dim gamesList As New ArrayList
 
