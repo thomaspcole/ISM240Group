@@ -29,33 +29,34 @@ Partial Class EditItem
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(141, 75)
+        Me.txtName.Location = New System.Drawing.Point(86, 15)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(100, 31)
+        Me.txtName.Size = New System.Drawing.Size(786, 31)
         Me.txtName.TabIndex = 0
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(403, 81)
+        Me.txtPrice.Location = New System.Drawing.Point(86, 58)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(100, 31)
+        Me.txtPrice.Size = New System.Drawing.Size(786, 31)
         Me.txtPrice.TabIndex = 1
         '
         'txtRating
         '
-        Me.txtRating.Location = New System.Drawing.Point(641, 78)
+        Me.txtRating.Location = New System.Drawing.Point(86, 103)
         Me.txtRating.Name = "txtRating"
-        Me.txtRating.Size = New System.Drawing.Size(100, 31)
+        Me.txtRating.Size = New System.Drawing.Size(786, 31)
         Me.txtRating.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(67, 75)
+        Me.Label1.Location = New System.Drawing.Point(12, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(68, 25)
         Me.Label1.TabIndex = 3
@@ -64,7 +65,7 @@ Partial Class EditItem
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(329, 81)
+        Me.Label2.Location = New System.Drawing.Point(19, 62)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 25)
         Me.Label2.TabIndex = 4
@@ -73,7 +74,7 @@ Partial Class EditItem
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(561, 84)
+        Me.Label3.Location = New System.Drawing.Point(6, 106)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(74, 25)
         Me.Label3.TabIndex = 5
@@ -81,18 +82,28 @@ Partial Class EditItem
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(823, 78)
+        Me.btnSave.Location = New System.Drawing.Point(12, 231)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(140, 50)
         Me.btnSave.TabIndex = 6
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(158, 231)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(140, 50)
+        Me.btnCancel.TabIndex = 7
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
         'EditItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 217)
+        Me.ClientSize = New System.Drawing.Size(884, 293)
+        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -114,4 +125,5 @@ Partial Class EditItem
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents btnSave As Button
+    Friend WithEvents btnCancel As Button
 End Class

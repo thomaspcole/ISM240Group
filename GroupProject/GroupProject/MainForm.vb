@@ -36,7 +36,7 @@ Public Class MainForm
         Dim DatabaseName As String = "ism240"
         Dim ServerUrl As String = "vortimoosegames.ddns.net"
         Dim Username As String = "visual"
-        Dim Password As String = "eA5MxKFM2En2DMhzgX5J" 'DO NOT FOR THE LOVE OF GOD TOUCH ANY OF THESE DIMS THEY ARE IMPORTANT
+        Dim Password As String = "" 'DO NOT FOR THE LOVE OF GOD TOUCH ANY OF THESE DIMS THEY ARE IMPORTANT
 
         If Not mySQLConnection Is Nothing Then mySQLConnection.Close()
 
@@ -52,11 +52,17 @@ Public Class MainForm
     End Sub
 
     'take in sql command and retrun the data
-    Public Function ExecuteQuery(query As String)
+    Public Function ExecuteQueryWithReturn(query As String)
         Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
         Dim sqlReader As MySqlDataReader = sqlQuery.ExecuteReader()
 
         Return sqlReader
         sqlReader.Close()
+    End Function
+
+    'take in sql command and retrun the data
+    Public Function ExecuteQuery(query As String)
+        Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
+        sqlQuery.ExecuteNonQuery()
     End Function
 End Class
