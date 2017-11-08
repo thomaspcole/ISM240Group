@@ -2,6 +2,7 @@
 
 Public Class InventoryForm
     Dim frmEditInventoryEntry As New EditItem
+    Dim frmAddInventoryEntry As New AddItem
 
     Dim gamesList As New ArrayList
 
@@ -9,10 +10,20 @@ Public Class InventoryForm
         Me.Close()
     End Sub
 
+    'add item
+    Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+        Me.Hide()
+
+        frmAddInventoryEntry.ShowDialog()
+
+        Me.Show()
+    End Sub
+
     'edit existing
     Private Sub btnEditExistingItem_Click(sender As Object, e As EventArgs) Handles btnEditExistingItem.Click
         Me.Hide()
 
+        'if something is selected when clicked
         If lstInventory.SelectedItem <> "" Then
             frmEditInventoryEntry.recieveItemToEdit(lstInventory.SelectedItem.ToString()) 'pass item to edit to the form
             frmEditInventoryEntry.ShowDialog()
@@ -27,12 +38,15 @@ Public Class InventoryForm
 
     'delete item
     Private Sub btnDeleteItem_Click(sender As Object, e As EventArgs) Handles btnDeleteItem.Click
+
+        'if something is selected when the button is clicked
         If lstInventory.SelectedItem <> "" Then
             Dim confirm As Integer = MsgBox("Are you sure?", MsgBoxStyle.YesNo)
 
+            'if the yes button is clicked
             If confirm = DialogResult.Yes Then
-                'run delete command
-                Console.WriteLine("Delete confirmed for: " + lstInventory.SelectedItem)
+                MainForm.ExecuteQuery("DELETE FROM games WHERE game_name='" + lstInventory.SelectedItem.ToString() + "'")
+                loadListFromDB()
             End If
         Else
             MsgBox("Please select an item to delete.")
@@ -66,4 +80,5 @@ Public Class InventoryForm
 
         Return 1
     End Function
+
 End Class
