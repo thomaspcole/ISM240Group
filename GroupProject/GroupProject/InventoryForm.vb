@@ -16,6 +16,7 @@ Public Class InventoryForm
 
         frmAddInventoryEntry.ShowDialog()
 
+        loadListFromDB()
         Me.Show()
     End Sub
 

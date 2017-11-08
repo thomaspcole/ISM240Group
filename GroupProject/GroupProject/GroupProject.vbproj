@@ -122,6 +122,12 @@
     <Compile Include="TransactionForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TrasnsactionSelectScreen.Designer.vb">
+      <DependentUpon>TrasnsactionSelectScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TrasnsactionSelectScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddItem.resx">
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrasnsactionSelectScreen.resx">
+      <DependentUpon>TrasnsactionSelectScreen.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

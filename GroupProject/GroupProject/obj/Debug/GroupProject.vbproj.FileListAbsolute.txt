@@ -48,3 +48,5 @@ C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\
 C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.xml
 C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
 C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.AddItem.resources
+C:\Users\Thomas Cole\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.AddItem.resources
+C:\Users\Thomas Cole\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.TrasnsactionSelectScreen.resources

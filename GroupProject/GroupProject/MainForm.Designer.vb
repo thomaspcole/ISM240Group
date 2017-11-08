@@ -28,9 +28,12 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.btnTransactionMode = New System.Windows.Forms.Button()
         Me.btnInventoryManager = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnTransactionMode
@@ -60,16 +63,28 @@ Partial Class MainForm
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(382, 41)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(360, 480)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(774, 569)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnInventoryManager)
         Me.Controls.Add(Me.btnTransactionMode)
         Me.Name = "MainForm"
         Me.Text = "Game Store"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -77,4 +92,5 @@ Partial Class MainForm
     Friend WithEvents btnTransactionMode As Button
     Friend WithEvents btnInventoryManager As Button
     Friend WithEvents btnExit As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
