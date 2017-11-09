@@ -52,3 +52,4 @@ C:\Users\Thomas Cole\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\
 C:\Users\Thomas Cole\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.TrasnsactionSelectScreen.resources
 C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.loginForm.resources
 C:\Users\thoma\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.TrasnsactionSelectScreen.resources
+C:\Users\Thomas Cole\Documents\GitHub\ISM240Group\GroupProject\GroupProject\obj\Debug\GroupProject.loginForm.resources

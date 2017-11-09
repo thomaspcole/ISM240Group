@@ -33,9 +33,9 @@ Partial Class TransactionForm
         '
         Me.lstItems.FormattingEnabled = True
         Me.lstItems.ItemHeight = 25
-        Me.lstItems.Location = New System.Drawing.Point(411, 12)
+        Me.lstItems.Location = New System.Drawing.Point(218, 12)
         Me.lstItems.Name = "lstItems"
-        Me.lstItems.Size = New System.Drawing.Size(351, 529)
+        Me.lstItems.Size = New System.Drawing.Size(544, 529)
         Me.lstItems.TabIndex = 0
         '
         'bntAddItem

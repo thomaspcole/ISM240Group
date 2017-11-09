@@ -9,6 +9,7 @@ Public Class TrasnsactionSelectScreen
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        lstInventory.SelectedIndex = -1
         Me.Close()
     End Sub
 
@@ -25,6 +26,10 @@ Public Class TrasnsactionSelectScreen
     Private Sub radCheckChanged(sender As Object, e As EventArgs) Handles radT.CheckedChanged, radM.CheckedChanged, radE.CheckedChanged, radAll.CheckedChanged
         loadListFromDB(txtSearch.Text)
     End Sub
+
+    Public Function getSelectedItem()
+        Return lstInventory.SelectedItem
+    End Function
 
     Function loadListFromDB(filter As String)
         Dim query As String = "SELECT * FROM games"
@@ -46,7 +51,7 @@ Public Class TrasnsactionSelectScreen
         End If
 
         'for testing remove me
-        Console.WriteLine(query)
+        'Console.WriteLine(query)
 
         Dim sqlReader As MySqlDataReader = MainForm.ExecuteQueryWithReturn(query)
 
@@ -56,7 +61,7 @@ Public Class TrasnsactionSelectScreen
 
         'read data from sql and insert it into the arraylist
         While sqlReader.Read
-            strGameandPrices.Add(sqlReader.GetValue(1).ToString() + ", " + sqlReader.GetValue(2).ToString())
+            strGameandPrices.Add(sqlReader.GetValue(1).ToString() + ", $" + sqlReader.GetValue(2).ToString())
         End While
         sqlReader.Close()
 
