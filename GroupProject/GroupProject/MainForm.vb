@@ -3,6 +3,7 @@
 Public Class MainForm
     Dim frmTransactionMode As New TransactionForm
     Dim frmInventoryManager As New InventoryForm
+    Dim frmLoginForm As New loginForm
     Public Shared mySQLConnection As New MySqlConnection
 
     Private Sub btnTransactionMode_Click(sender As Object, e As EventArgs) Handles btnTransactionMode.Click
@@ -25,14 +26,25 @@ Public Class MainForm
         Console.WriteLine("Form LOADED!")
         'initialize things here
 
-        ConnectToDB("visual", "")
+LoginRoutine:
+        frmLoginForm.ShowDialog()
+
+        Dim loginUname As String = frmLoginForm.getUsername()
+        Dim loginPass As String = frmLoginForm.getPassword()
+
+        If ConnectToDB(loginUname, loginPass) = True Then
+            Console.WriteLine("Login Sucess")
+        Else
+            MsgBox("Invalid username or password")
+            GoTo LoginRoutine
+        End If
     End Sub
 
     Private Sub Form_Unload(sender As Object, e As EventArgs) Handles Me.Closing
         mySQLConnection.Close()
     End Sub
 
-    Private Sub ConnectToDB(uname As String, pword As String)
+    Function ConnectToDB(uname As String, pword As String)
         Dim DatabaseName As String = "ism240"
         Dim ServerUrl As String = "vortimoosegames.ddns.net"
         Dim Username As String = uname
@@ -44,12 +56,13 @@ Public Class MainForm
         Try
             mySQLConnection.Open()
             Console.WriteLine("CONNECTED TO DB!!!")
+            Return True
         Catch ex As Exception
             Console.WriteLine("Could not connect to DB" + ex.ToString())
+            Return False
         End Try
 
-
-    End Sub
+    End Function
 
     'take in sql command and retrun the data
     Public Function ExecuteQueryWithReturn(query As String)
