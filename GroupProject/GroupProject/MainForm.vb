@@ -25,18 +25,18 @@ Public Class MainForm
         Console.WriteLine("Form LOADED!")
         'initialize things here
 
-        ConnectToDB()
+        ConnectToDB("visual", "")
     End Sub
 
     Private Sub Form_Unload(sender As Object, e As EventArgs) Handles Me.Closing
         mySQLConnection.Close()
     End Sub
 
-    Private Sub ConnectToDB()
+    Private Sub ConnectToDB(uname As String, pword As String)
         Dim DatabaseName As String = "ism240"
         Dim ServerUrl As String = "vortimoosegames.ddns.net"
-        Dim Username As String = "visual"
-        Dim Password As String = "" 'DO NOT FOR THE LOVE OF GOD TOUCH ANY OF THESE DIMS THEY ARE IMPORTANT
+        Dim Username As String = uname
+        Dim Password As String = pword 'DO NOT FOR THE LOVE OF GOD TOUCH ANY OF THESE DIMS THEY ARE IMPORTANT
 
         If Not mySQLConnection Is Nothing Then mySQLConnection.Close()
 
