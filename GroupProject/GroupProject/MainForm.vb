@@ -3,6 +3,7 @@
 Public Class MainForm
     Dim frmTransactionMode As New TransactionForm
     Dim frmInventoryManager As New InventoryForm
+    Dim frmTransactionHistroy As New transactionHistory
     Dim frmLoginForm As New loginForm
     Public Shared mySQLConnection As New MySqlConnection
 
@@ -18,8 +19,14 @@ Public Class MainForm
         Me.Show()
     End Sub
 
+    Private Sub btnTransactionHistory_Click(sender As Object, e As EventArgs) Handles btnTransactionHistory.Click
+        Me.Hide()
+        frmTransactionHistroy.ShowDialog()
+        Me.Show()
+    End Sub
+
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
+        Application.Exit()
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -33,7 +40,7 @@ LoginRoutine:
         Dim loginPass As String = frmLoginForm.getPassword()
 
         If ConnectToDB(loginUname, loginPass) = True Then
-            Console.WriteLine("Login Sucess")
+            Console.WriteLine("Login complete")
         Else
             MsgBox("Invalid username or password")
             GoTo LoginRoutine
@@ -78,4 +85,6 @@ LoginRoutine:
         Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
         sqlQuery.ExecuteNonQuery()
     End Function
+
+
 End Class

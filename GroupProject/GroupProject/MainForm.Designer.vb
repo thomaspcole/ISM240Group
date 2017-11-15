@@ -33,6 +33,7 @@ Partial Class MainForm
         Me.btnInventoryManager = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnTransactionHistory = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -73,11 +74,21 @@ Partial Class MainForm
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
         '
+        'btnTransactionHistory
+        '
+        Me.btnTransactionHistory.Location = New System.Drawing.Point(12, 174)
+        Me.btnTransactionHistory.Name = "btnTransactionHistory"
+        Me.btnTransactionHistory.Size = New System.Drawing.Size(250, 75)
+        Me.btnTransactionHistory.TabIndex = 4
+        Me.btnTransactionHistory.Text = "Transaction History"
+        Me.btnTransactionHistory.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(774, 569)
+        Me.Controls.Add(Me.btnTransactionHistory)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnInventoryManager)
@@ -93,4 +104,5 @@ Partial Class MainForm
     Friend WithEvents btnInventoryManager As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnTransactionHistory As Button
 End Class

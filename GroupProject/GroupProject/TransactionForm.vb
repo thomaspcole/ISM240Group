@@ -36,6 +36,23 @@
 
         MsgBox("Subtotal: " + dblSubTotal.ToString("c") + vbNewLine + "Tax: " + dblSalesTax.ToString("c") + vbNewLine + "Total: " + dblTotal.ToString("c"))
 
+        Dim itemsPurchased As String = ""
+
+        For Each item In lstItems.Items
+            'split the entry in the list box at the $. 
+            'EX: Test Entry, $12.95 -> {"Test Entry, $", "12.95"}
+            Dim splitString As String() = item.ToString.Split(",")
+
+            If itemsPurchased = "" Then
+                itemsPurchased = splitString.First()
+            Else
+                itemsPurchased += ", " + splitString.First()
+            End If
+        Next
+
+        MainForm.ExecuteQuery("INSERT INTO transactions(t_date, t_amount, t_items) VALUES (NOW(),'" + dblTotal.ToString() + "', '" + itemsPurchased + "');")
+
+        lstItems.Items.Clear()
         Me.Close()
     End Sub
 
