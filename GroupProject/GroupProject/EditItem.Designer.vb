@@ -112,7 +112,7 @@ Partial Class EditItem
         Me.Controls.Add(Me.txtPrice)
         Me.Controls.Add(Me.txtName)
         Me.Name = "EditItem"
-        Me.Text = "EditItem"
+        Me.Text = "Edit Item"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

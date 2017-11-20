@@ -1,9 +1,19 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class transactionHistory
+    Dim frmTransactionInfo As New transactionDetails
+
     Private Sub btnViewTransaction_Click(sender As Object, e As EventArgs) Handles btnViewTransaction.Click
-        If lstTransaction.SelectedIndex = "" Then
+        If lstTransaction.SelectedItem = "" Then
             MsgBox("Please select a transaction to view")
+        Else
+            Me.Hide()
+            Dim splitString As String() = lstTransaction.SelectedItem.ToString.Split(":")
+            Dim tID As String() = splitString(1).Split(" ")
+
+            frmTransactionInfo.loadInfoFromDB(tID(0))
+            frmTransactionInfo.ShowDialog()
+            Me.Show()
         End If
     End Sub
 
@@ -23,11 +33,12 @@ Public Class transactionHistory
         lstTransaction.Items.Clear()
 
         While sqlReader.Read
-            lstTransaction.Items.Add("Transaction Date: " + sqlReader.GetValue(1).ToString() + " Transaction Amount: " + sqlReader.GetDouble(2).ToString("c"))
+            lstTransaction.Items.Add("Transaction ID:" + sqlReader.GetValue(0).ToString() + " Transaction Date: " + sqlReader.GetValue(1).ToString() + " Transaction Amount: " + sqlReader.GetDouble(2).ToString("c"))
         End While
         sqlReader.Close()
 
 
         Return 1
     End Function
+
 End Class

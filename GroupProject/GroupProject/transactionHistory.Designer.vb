@@ -63,7 +63,7 @@ Partial Class transactionHistory
         Me.Controls.Add(Me.btnDone)
         Me.Controls.Add(Me.lstTransaction)
         Me.Name = "transactionHistory"
-        Me.Text = "transactionHistory"
+        Me.Text = "Transaction History"
         Me.ResumeLayout(False)
 
     End Sub

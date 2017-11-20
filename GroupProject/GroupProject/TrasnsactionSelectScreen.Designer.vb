@@ -147,7 +147,7 @@ Partial Class TrasnsactionSelectScreen
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lstInventory)
         Me.Name = "TrasnsactionSelectScreen"
-        Me.Text = "TrasnsactionSelectScreen"
+        Me.Text = "Inventory Selector"
         Me.gbxFilterByRating.ResumeLayout(False)
         Me.gbxFilterByRating.PerformLayout()
         Me.ResumeLayout(False)

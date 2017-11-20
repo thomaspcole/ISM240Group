@@ -85,7 +85,7 @@ Partial Class TransactionForm
         Me.Controls.Add(Me.bntAddItem)
         Me.Controls.Add(Me.lstItems)
         Me.Name = "TransactionForm"
-        Me.Text = "TransactionForm"
+        Me.Text = "Transaction"
         Me.ResumeLayout(False)
 
     End Sub

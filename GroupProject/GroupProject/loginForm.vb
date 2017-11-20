@@ -1,6 +1,6 @@
 ﻿Public Class loginForm
-    Dim uname As String
-    Dim pword As String
+    Dim uname As String = ""
+    Dim pword As String = ""
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         uname = txtUsername.Text
@@ -9,7 +9,8 @@
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Application.Exit()
+        uname = "cancelClick"
+        Me.Close()
     End Sub
 
     Public Function getUsername()

@@ -33,11 +33,23 @@ Public Class MainForm
         Console.WriteLine("Form LOADED!")
         'initialize things here
 
+        'check for the mysql.data.dll file
+        If System.IO.File.Exists("MySql.Data.dll") = False Then
+            MsgBox("ATTENTION! You have tried to run this executable without the 'MySql.Data.dll'. This file is REQUIRED for this program to run correctly.")
+            EXITAPPLICATION()
+        End If
+
+        'run the login routine. 
 LoginRoutine:
         frmLoginForm.ShowDialog()
 
         Dim loginUname As String = frmLoginForm.getUsername()
         Dim loginPass As String = frmLoginForm.getPassword()
+
+        If loginUname = "cancelClick" Then
+            EXITAPPLICATION()
+            Return
+        End If
 
         If ConnectToDB(loginUname, loginPass) = True Then
             Console.WriteLine("Login complete")
@@ -84,6 +96,13 @@ LoginRoutine:
     Public Function ExecuteQuery(query As String)
         Dim sqlQuery As New MySqlCommand(query, mySQLConnection)
         sqlQuery.ExecuteNonQuery()
+
+        Return 1
+    End Function
+
+    Private Function EXITAPPLICATION()
+        Application.Exit()
+        Return 0
     End Function
 
 
